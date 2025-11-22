@@ -8,7 +8,7 @@ settings = Settings()
 
 
 def get_session():
-    database_url = settings.DB_PATH
+    database_url = settings.database_url
     engine = create_engine(database_url)
     session = sessionmaker(engine)
     return session
