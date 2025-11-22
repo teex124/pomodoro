@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+
+services:
+  db:
+    image: postgres:16.2
+    restart: always
+    shm_size: 128mb
+    ports: 
+      - "4578:5432" 
+    environment:
+      POSTGRES_PASSWORD: 12356
+      POSTGRES_USER: zirael 
+      POSTGRES_DB: pomodoro  
+
+  cashe:
+    image: redis:7.2-alpine
+    restart: always
+    ports:
+    - "6379:6379"
+
