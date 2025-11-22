@@ -2,5 +2,13 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    GOOGLE_TOKEN_ID: str = 'asdasgadsadfgsd123'
-    DB_PATH: str = 'postgresql+psycopg2://zirael:12356@localhost:4578/pomodoro'
+    DB_HOST: str = 'localhost'
+    DB_PORT: int = 4578
+    DB_USER: str = 'postgres'
+    DB_PASSWORD: str = 'password'
+    DB_NAME: str = 'pomidoro_db'
+    REDIS_HOST: str = 'localhost'
+    REDIS_PORT: int = 6379
+    REDIS_DB: int = 0
+    
+    
