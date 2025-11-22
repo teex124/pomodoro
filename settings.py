@@ -2,6 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
+    DRIVER: str = 'postgresql+psycopg2'
     DB_HOST: str = 'localhost'
     DB_PORT: int = 4578
     DB_USER: str = 'postgres'
@@ -11,4 +12,6 @@ class Settings(BaseSettings):
     REDIS_PORT: int = 6379
     REDIS_DB: int = 0
     
-    
+    @property
+    def database_url(self) -> str:
+        return f'{self.DRIVER}://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}'

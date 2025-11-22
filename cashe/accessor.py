@@ -1,11 +1,14 @@
-import redis 
+import redis
+
+from settings import Settings 
 
 
 def get_redis_connection() ->  redis.Redis:
+    settings = Settings()
     redis_ = redis.Redis(
-        host = 'localhost',
-        port = 6379,
-        db = 0
+        host = settings.REDIS_HOST,
+        port = settings.REDIS_PORT,
+        db = settings.REDIS_DB
     )
     return redis_
 
